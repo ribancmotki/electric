@@ -1,0 +1,18 @@
+--- a/src/jackhmmer.c
++++ b/src/jackhmmer.c
+@@ -1,6 +1,6 @@
+ /* jackhmmer: iterative search of a protein sequence against a protein database
+  */
+-#define JACKHMMER_MAX_SEQS 100000
++#define JACKHMMER_MAX_SEQS 1000000
+ 
+ #include "p7_config.h"
+ 
+@@ -45,7 +45,7 @@ static ESL_OPTIONS options[] = {
+   { "--chkhmm",     eslARG_OUTFILE, FALSE, NULL, NULL,    NULL,  NULL, NULL,            "save HMM checkpoints to file <f>",                              5 },
+   { "--chkali",     eslARG_OUTFILE, FALSE, NULL, NULL,    NULL,  NULL, NULL,            "save multiple alignment checkpoints to file <f>",               5 },
+   { "--tformat",    eslARG_STRING,  FALSE, NULL, NULL,    NULL,  NULL, NULL,            "assert target <seqfile> is in format <s>: no autodetection",     5 },
+-  { "--cpu",        eslARG_INT,     FALSE, NULL, "n>=0",  NULL,  NULL, CPUOPTS,         "number of parallel CPU workers to use for multithreads",         5 },
++  { "--cpu",        eslARG_INT,    "8",    NULL, "n>=0",  NULL,  NULL, CPUOPTS,         "number of parallel CPU workers to use for multithreads",         5 },
+   {  0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+ };
